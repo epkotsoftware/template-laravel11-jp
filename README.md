@@ -1,6 +1,6 @@
-# Laravel10環境
+# Laravel11環境
 
-Laravel10 のGitHubテンプレートリポジトリです。
+Laravel11 のGitHubテンプレートリポジトリです。
 
 ## インストール
 
@@ -80,7 +80,7 @@ Laravel関連のコマンドはDockerで用意した、Webサーバー（コン�
 ```bash
 # ターミナルで実行
 ## Webサーバーに入るコマンド（-itの後に入る名称はコンテナ名「{NAME_PREFIX}-web」）
-docker exec -it laravel10-web bash
+docker exec -it laravel11-web bash
 ```
 
 VSCodeの[Docker拡張機能](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)が入っている場合、対象コンテナの「Attach Shell」でも開けます。  
