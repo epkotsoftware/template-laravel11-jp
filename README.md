@@ -94,9 +94,8 @@ VSCodeの[Docker拡張機能](https://marketplace.visualstudio.com/items?itemNam
 composer install
 ```
 
-`composer install` 実行後に「`Exception`」が出ていると失敗しているので  
+`composer install` 実行後に「`Exception`」・「`Error`」等が出ていると失敗しているので  
 [root/vendor/](./root/vendor/)ディレクトリを削除して、再実行してみましょう。  
-「`successfully`」が出ていれば成功です。
 
 #### Laravel初期設定
 
@@ -159,48 +158,26 @@ php artisan lang:publish
   - `Laravel 10.x 多言語化 〜 言語ファイルのリソース公開`
     - <https://readouble.com/laravel/10.x/ja/localization.html#publishing-the-language-files>
 
-#### 言語ファイルダウンロード
+#### 日本語言語ファイル
 
 ※ **以下は実施済みです**  
 
-「[`resources/lang/`](./root/resources/lang/)」に「`ja`」ディレクトリが生成され4つの言語ファイルが追加されます。  
-※ 2023/03 現在、Laravel8向けの言語ファイルしか用意されていません。  
-　Laravel8の言語ファイルを使う場合、Laravel9〜と言語ファイルの格納場所が異なるためご注意ください。  
-
-| Laravel | 言語ディレクトリパス |
-| --- | --- |
-| Laravel8 | root/resources/lang/ja |
-| Laravel9〜 | root/lang/ja |
-
-```bash
-# ■ Webサーバーで入力
-cd /var/www/root
-php -r "copy('https://readouble.com/laravel/8.x/ja/install-ja-lang-files.php', 'install-ja-lang.php');"
-php -f install-ja-lang.php
-php -r "unlink('install-ja-lang.php');"
-
-# Laravel9〜の場合、lang/ja に移動
-mv resources/lang/ja/ lang/
-rmdir resources/lang/
-```
-
-- auth.php言語ファイル <https://readouble.com/laravel/8.x/ja/auth-php.html>
-- pagination.php言語ファイル <https://readouble.com/laravel/8.x/ja/pagination-php.html>
-- passwords.php言語ファイル <https://readouble.com/laravel/8.x/ja/passwords-php.html>
-- validation.php言語ファイル <https://readouble.com/laravel/8.x/ja/validation-php.html>
+2024/03 現在、今までダウンロードできたLaravel8の日本語言語ファイルがダウンロードできなくなりました。  
+以前、ダウンロードした `lang/ja` をそのまま残しています。  
 
 #### app.php
 
 ※ **以下は実施済みです**  
 
-`config/app.php` の日本設定を行います。
+`config/app.php` の日本設定を行います。  
+Laravel11からは、`.env`ファイルで設定を行います。
 
-| Key | Value | 備考 |
-| --- | :---: | --- |
-| timezone | `Asia/Tokyo` | デフォルト: `UTC` |
-| locale  | `ja` | デフォルト: `en` |
-| fallback_locale | `en` | デフォルト: `en`<br>locale の言語が見つからない場合に適用する言語<br>デフォルトの`en`を指定するのが良い |
-| faker_locale | `ja_JP` | デフォルト: `en_US` |
+| .env | Key | Value | 備考 |
+| --- | --- | :---: | --- |
+| APP_TIMEZONE        | timezone        | `Asia/Tokyo` | デフォルト: `UTC` |
+| APP_LOCALE          | locale          | `ja`         | デフォルト: `en` |
+| APP_FALLBACK_LOCALE | fallback_locale | `en`         | デフォルト: `en`<br>locale の言語が見つからない場合に適用する言語<br>デフォルトの`en`を指定するのが良い |
+| APP_FAKER_LOCALE    | faker_locale    | `ja_JP`      | デフォルト: `en_US` |
 
 #### .env.testing設定
 
